@@ -25,7 +25,7 @@ jobs:
     - name: Setup Cloud SDK
       env:
           PROJECT_ID: ${{ secrets.GCP_PROJECT }}
-          SERVICE: mgmt590-assignment3-flask
+          SERVICE: kingslayer
           REGION: us-central1
 
       uses: google-github-actions/setup-gcloud@master
@@ -39,7 +39,7 @@ jobs:
     - name: Authorize Docker push
       env:
           PROJECT_ID: ${{ secrets.GCP_PROJECT }}
-          SERVICE: mgmt590-assignment3-flask
+          SERVICE: kingslayer
           REGION: us-central1
 
       run: gcloud auth configure-docker
