@@ -16,7 +16,7 @@ COPY src/table.py /src/table.py
 
 COPY src/table.py /src/table.py
 
-COPY /data .
+COPY data .
 
 
 
