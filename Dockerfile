@@ -16,8 +16,8 @@ COPY src/table.py /src/table.py
 
 COPY src/table.py /src/table.py
 
-ADD data .
+COPY data/opening.bin /data/opening.bin
 
+COPY data/cache.p /data/cache.p
 
-
-CMD ["python3", "/app/game.py"]
+CMD ["python3", "/src/game.py"]
