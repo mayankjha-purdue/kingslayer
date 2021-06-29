@@ -1,1 +1,4 @@
 python-chess
+chess~=1.6.1
+future~=0.18.2
+Pillow~=8.2.0
