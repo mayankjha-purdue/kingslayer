@@ -4,15 +4,20 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src/game.py /app/game.py
+COPY src/game.py /src/game.py
 
-COPY src/ai.py /app/ai.py
+COPY src/ai.py /src/ai.py
 
-COPY src/board.py /app/board.py
+COPY src/board.py /src/board.py
 
-COPY src/gui.py /app/gui.py
+COPY src/gui.py /src/gui.py
 
-COPY src/table.py /app/table.py
+COPY src/table.py /src/table.py
+
+COPY src/table.py /src/table.py
+
+COPY /data .
+
 
 
 CMD ["python3", "/app/game.py"]
