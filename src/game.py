@@ -1,17 +1,19 @@
 from tkinter import Tk
 from random import choice
-import os
 
 import chess
 
 import ai
 import gui
-
-if os.environ.get('DISPLAY','') == '':
-    print('no display found. Using :0.0')
-    os.environ.__setitem__('DISPLAY', ':0.0')
+import numpy as np
 
 class Game:
+    depth = int(input("Which difficulty? (depth 2,3..)\n"))
+    use_quiesce = int(input(
+        "Do you wanna use quiescence search?\nThis improves the algorithm but takes more time to compute.\nyes : press 1\nno : press 2\n"))
+    NN_flag = int(input(
+        "Do you wanna use the trained neural network to supplement the board evaluation?\nThis improves the algorithm but takes more time to evaluate.\nyes : press 1\nno : press 2\n"))
+
     board = chess.Board()
 
     player_turns = [choice([True, False])]
@@ -19,6 +21,7 @@ class Game:
 
     root = Tk()
     root.title('King Slayer')
+
 
     def __init__(self):
         self.display = gui.GUI(self.root, self, self.board, self.player_turns)
@@ -38,6 +41,33 @@ class Game:
 
         self.root.mainloop()
 
+    # def player_play(self):
+    #     self.display.label_status["text"] = "Player's turn."
+    #
+    #     # wait as long as possible for player's input
+    #     self.root.after(100000000, self.computer_play)
+
+    # def computer_play(self):
+    #     ai.AI(self.board, self.is_player_white).ai_move()
+    #
+    #     self.display.refresh()
+    #     self.display.draw_pieces()
+    #
+    #     self.player_turns.append(True)
+    #     if self.board.is_checkmate():
+    #         self.display.label_status["text"] = "Checkmate."
+    #     elif self.board.is_stalemate():
+    #         self.display.label_status["text"] = "It was a draw."
+    #     else:
+    #         self.display.label_status[
+    #             "text"] = "Computer's turn. The computer is thinking..."
+    #
+    #         self.root.after(100, self.player_play)
+
+
+
+
+
     def player_play(self):
         self.display.label_status["text"] = "Player's turn."
 
@@ -45,7 +75,7 @@ class Game:
         self.root.after(100000000, self.computer_play)
 
     def computer_play(self):
-        ai.AI(self.board, self.is_player_white).ai_move()
+        ai.AI(self.board, self.is_player_white).ai_move(self.depth, self.use_quiesce, self.NN_flag)
 
         self.display.refresh()
         self.display.draw_pieces()

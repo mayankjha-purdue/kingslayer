@@ -1,4 +1,8 @@
 python-chess
+
 chess~=1.6.1
 future~=0.18.2
 Pillow~=8.2.0
+numpy~=1.20.3
+tensorflow~=2.5.0
+pandas~=1.2.4

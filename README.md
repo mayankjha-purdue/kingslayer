@@ -1,49 +1,54 @@
-# Yachess: Yet Another Chess (AI)
+# Kingslayer:  Chess AI that can play gainst humans
 
-Yachess is a simple chess game with AI inspired by this Medium article: [A step-by-step guide to building a simple chess AI](https://medium.freecodecamp.com/simple-chess-ai-step-by-step-1d55a9266977).
+Kingslayer is a simple chess game with AI and Deep Neural Network that can play against humans.
 
-<img src="img/screenshot.png" width="346" height="382"/>
+![gc](./img/king.png)
 
-This project is entirely for fun and learning the basics of AI such as minimax, alpha-beta pruning, etc.
+## Running the chess engine:
 
-### Prerequisites
+```bash
+$ python3 src/game.py
+```
 
-1. python3
-   - **Linux**: https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python
-   - **Windows**: https://docs.python.org/3/using/windows.html#installing-python
-   - **Mac**: https://docs.python.org/3/using/mac.html#getting-and-installing-macpython
+![gc2](./img/fun.gif)
 
-2. pip3
+## Dependencies
 
-   https://pip.pypa.io/en/stable/installing/
+The Dependencies are in the `requirements.txt` namely:
 
-3. tkinter
+```bash
+python-chess
 
-   https://tkinter.unpythonic.net/wiki/How_to_install_Tkinter
+chess~=1.6.1
 
-### How to Play
+future~=0.18.2
 
-To play, simply do the following from project root, assuming python3, pip3, and tkinter are already installed:
+Pillow~=8.2.0
 
-1. `git clone https://github.com/devinalvaro/yachess`
-2. `cd yachess`
-3. `make` (install python-chess with pip3)
-4. `python3 src/game.py`
+numpy~=1.20.3
 
-### Todos
+tensorflow~=2.5.0
 
- - smarter AI:
-   - move-ordering
-   - faster move-generation
-   - end-game evaluation
-   - state-caching &#10003;
-   - opening book &#10003;
- - GUI:
-   - log message &#10003;
-   - promotion &#10003;
-   - move highlight &#10003;
-   - win condition &#10003;
+pandas~=1.2.4
 
-### License
+```
 
-This project is licensed under the MIT License - see the LICENSE file for details
+## Functionalities Supported:
+
+```bash
+•Pawn Capture
+
+•Castling
+
+•En Passant
+
+•Pawn Promotion
+
+
+•3 hidden layers, neurons are activated using ReLU
+•Tanh function used for output layer to keep result between 1 & -1
+•Learning rate kept at 0.01
+
+
+
+```
